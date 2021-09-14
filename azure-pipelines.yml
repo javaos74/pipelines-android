@@ -6,13 +6,13 @@
 pool:
   vmImage: 'ubuntu-latest'
 
-
 steps:
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
-    publishJUnitResults: true
+    gradleOptions: '--gradle-version=7.0.2'
+    publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
