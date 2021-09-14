@@ -11,18 +11,10 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
-    gradleOptions: '--gradle-version 7.0.2'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: true
-    sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '2.6.1'
-    checkStyleRunAnalysis: true
-    findBugsRunAnalysis: true
-    spotBugsAnalysis: true
-    spotBugsGradlePluginVersionChoice: 'specify'
-    spotbugsGradlePluginVersion: '4.7.0'
+
 
 - task: CopyFiles@2
   inputs:
