@@ -11,7 +11,7 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
-    gradleOptions: '--gradle-version=7.0.2'
+    gradleOptions: '--gradle-version 7.0.2'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
