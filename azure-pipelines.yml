@@ -4,21 +4,25 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
 
 pool:
-  vmImage: 'macOS-latest'
+  vmImage: 'ubuntu-latest'
+
 
 steps:
 - task: Gradle@2
   inputs:
-    workingDirectory: ''
     gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
+    tasks: 'build'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'assembleDebug test'
-  displayName: gradlew assembleDebug test
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '2.6.1'
+    checkStyleRunAnalysis: true
+    findBugsRunAnalysis: true
+    spotBugsAnalysis: true
+    spotBugsGradlePluginVersionChoice: 'specify'
+    spotbugsGradlePluginVersion: '4.7.0'
 
 - task: CopyFiles@2
   inputs:
